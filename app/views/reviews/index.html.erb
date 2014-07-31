@@ -1,8 +1,22 @@
 <a href="/new">Add a review</a>
+<br>
+<br>
+<p> Red Rooster current star rating is : <%= @my_average %> </p>
+<br>
 <h2>Reviews</h2>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li><%= review.name %> <%= review.title %> <%= review.star %></li>
-  <% end %>
-</ul>
+<% @reviews.each do |review| %>
+  <table>
+    <tr>
+      <td><%= review.name %></td>
+      <td><%= review.title %></td>
+      <td><%= review.star %> stars</td>
+    </tr>
+    <tr>
+      <td colspan=3><%= review.description %></td>
+    </tr>
+    <tr>
+      <td colspan=3> - - - - - - - - - - - - - - - - - </td>
+    </tr>
+  </table>
+<% end %>

@@ -2,11 +2,23 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    @my_average = avg
   end
 
   def new
     #leave blank
   end
+
+# avg action will calculate the average of all the star ratings
+   def avg
+    array = []
+# this DO-loop will put all the star ratings into an array
+    @reviews.each do |count|
+       array.push(count.star.to_i)
+    end
+# this line will calculate the actual average of all the star ratings
+    outavg = array.inject(0.0) { |sum, el| sum + el } / array.size
+   end
 
   def create
 #    Review.create(review_params)
@@ -22,12 +34,6 @@ class ReviewsController < ApplicationController
 
 private
   def review_params
-# Strong parameters 
-# SQL injection problem: make: 'Accord' model: 'drop all tables'
-# hackers injecting code into SQL via SQL queries
-# Take params hash: i will only accept the following keys 
-# Prevents unwanted keys
-# Prevents unwanted SQL injection
     params.permit(:name, :title, :description, :star)
   end
 end
