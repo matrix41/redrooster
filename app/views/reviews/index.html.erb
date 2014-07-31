@@ -1,0 +1,8 @@
+<a href="/new">Add a review</a>
+<h2>Reviews</h2>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li><%= review.name %> <%= review.title %> <%= review.star %></li>
+  <% end %>
+</ul>
