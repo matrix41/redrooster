@@ -20,15 +20,25 @@ class ReviewsController < ApplicationController
     outavg = array.inject(0.0) { |sum, el| sum + el } / array.size
    end
 
-  def create
-#    Review.create(review_params)
-    the_review = Review.new(review_params)
+  # def create
+  #   the_review = Review.new(review_params)
 
-    if the_review.save
-      @message = "Review successfully saved!"
+  #   if the_review.save
+  #     @message = "Review successfully saved!"
+  #   else
+  #     @message = "Review not saved :( Sorry"
+  #   end
+  # end
+
+  def create
+    review = Review.new(review_params)
+    if review.save
+      flash[:notice] = 'Yay'
+#      redirect_to root_path
+      redirect_to '/'
     else
-      @message = "Review not saved :( Sorry"
-#     @message = the_review.error.full_messages
+      flash[:notice] = review.errors.full_messages.to_sentence
+      render :action => 'new'
     end
   end
 

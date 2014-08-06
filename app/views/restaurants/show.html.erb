@@ -1,0 +1,26 @@
+<% @params %>
+<h2> Welcome to <%= @var_name %> </h2>
+<br>
+<a href="/"> Return to Restaurant index </a>
+<br>
+<a href="/new">Add a review</a>
+<br>
+<br>
+<h2>Reviews</h2>
+<% @reviews.each do |review| %>
+  <table>
+    <tr>
+      <td><%= review.name %></td>
+      <td><%= review.title %></td>
+      <td><%= review.star %> stars</td>
+    </tr>
+    <tr>
+      <td colspan=3><%= review.description %></td>
+    </tr>
+    <tr>
+      <td colspan=3> - - - - - - - - - - - - - - - - - </td>
+    </tr>
+  </table>
+<% end %>
+
+<br>

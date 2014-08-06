@@ -1,0 +1,8 @@
+<h2> restaurants in woodstock </h2>
+<% @restaurants.each do |rest| %>
+  <a href="/restaurant/<%= rest.id %>"><%= rest.name %></a><br><br>
+<% end %>
+<br>
+<br>
+<a href="/addnewrestaurant">Add a new restaurant</a>
+<br>

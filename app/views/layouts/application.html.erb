@@ -19,8 +19,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='container'>
+  <div class='page-header'>
+    <h1>welcome to woodstock</h1>
+  </div>
+  
+  <% if flash[:notice] %>
+  <div class='alert alert-info fade in'><%= flash[:notice] %></div>
+  <% end %>
 
-  <h1>Welcome to Red Rooster Restaurant</h1>
+<!--  <h1>Welcome to Red Rooster Restaurant</h1> -->
 
 <%= yield %>
 
