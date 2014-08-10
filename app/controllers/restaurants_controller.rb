@@ -10,8 +10,18 @@ class RestaurantsController < ApplicationController
       if ( thing.id == params[:id].to_i )
         @var_name = thing.name
       end
+    end # DO-loop for @restaurants 
+
+    reviews_subset = []
+    temp_array = []
+    @reviews.each do |intrepid|
+      if ( intrepid.restaurant_id == params[:id].to_i )
+        temp_array.push(intrepid)
+      end
     end
-  end
+    @reviews_subset = temp_array
+    @restaurant_number = params[:id].to_i
+  end # end of def show 
 
   def create
     restaurant = Restaurant.new(restaurant_params)

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   post '/createnewrestaurant' => 'restaurants#create'
 
   # form for a new review 
-  get '/new' => 'reviews#new'
+# get '/new' => 'reviews#new'
+  get '/new:id' => 'reviews#new'
 
   # post form here 
   post '/create' => 'reviews#create'

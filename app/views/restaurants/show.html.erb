@@ -1,13 +1,13 @@
-<% @params %>
+<%= @params %>
 <h2> Welcome to <%= @var_name %> </h2>
 <br>
 <a href="/"> Return to Restaurant index </a>
 <br>
-<a href="/new">Add a review</a>
+<a href="/new<%= @restaurant_number %>" >Add a review</a>
 <br>
 <br>
 <h2>Reviews</h2>
-<% @reviews.each do |review| %>
+<% @reviews_subset.each do |review| %>
   <table>
     <tr>
       <td><%= review.name %></td>

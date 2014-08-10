@@ -14,3 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+rails_console_screenshot_140731.txt
+rails_generate_bobby_matson_teaching_screenshot.txt
+

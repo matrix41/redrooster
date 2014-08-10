@@ -1,5 +1,6 @@
-<h3> Add a New Review </h3>
-
+<% params[:id] %>
+<br>
+<h3> Add a New RReview </h3>
 <form action='/create' method='post' >
   <table>
   <tr>
@@ -24,7 +25,7 @@
 
   <tr>
     <td> <input type='submit' class='btn btn-primary'> </td>
-    <td> </td>
+    <td> <input type='hidden' name='restaurant_id' value=<%= @the_restaurant_id %> > </td>
   </tr>
   </table>
 </form>

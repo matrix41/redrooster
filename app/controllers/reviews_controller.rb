@@ -6,11 +6,11 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    #leave blank
+    @the_restaurant_id = params[:id]
   end
 
 # avg action will calculate the average of all the star ratings
-   def avg
+  def avg
     array = []
 # this DO-loop will put all the star ratings into an array
     @reviews.each do |count|
@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     end
 # this line will calculate the actual average of all the star ratings
     outavg = array.inject(0.0) { |sum, el| sum + el } / array.size
-   end
+  end
 
   # def create
   #   the_review = Review.new(review_params)
@@ -44,6 +44,6 @@ class ReviewsController < ApplicationController
 
 private
   def review_params
-    params.permit(:name, :title, :description, :star)
+    params.permit(:name, :title, :description, :star, :restaurant_id)
   end
 end
